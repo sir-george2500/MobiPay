@@ -111,7 +111,22 @@ public function init_form_fields()
                 'sandbox' => __( 'Sandbox', 'mobipay-payments-woo' ),
                 'production' => __( 'Production', 'mobipay-payments-woo' ),
             ],
-            ]
+            ],
+        'user_id' => [
+            'title' => __('User ID', 'mobipay-payments-woo'),
+            'type' => 'text',
+            'description' => __('Enter the User ID for MobiPay Mobile Payments.', 'mobipay-payments-woo'),
+            'default' => '',
+            'desc_tip' => true,
+        ],
+
+        'subscription_key' => [
+            'title' => __('Subscription Key', 'mobipay-payments-woo'),
+            'type' => 'text',
+            'description' => __('Enter the Subscription Key for MobiPay Mobile Payments.', 'mobipay-payments-woo'),
+            'default' => '',
+            'desc_tip' => true,
+        ],
     ];
 }
 
