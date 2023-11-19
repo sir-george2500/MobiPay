@@ -49,60 +49,62 @@ class WC_Gateway_MobiPay extends WC_Payment_Gateway {
 		$this->has_fields         = false;
 	}
 
-	/**
-	 * Initialise Gateway Settings Form Fields.
-	 */
-	public function init_form_fields() {
-		$this->form_fields = array(
-			'enabled'            => array(
-				'title'       => __( 'Enable/Disable', 'mobipay-payments-woo' ),
-				'label'       => __( 'Enable MobiPay Mobile Payments', 'mobipay-payments-woo' ),
-				'type'        => 'checkbox',
-				'description' => '',
-				'default'     => 'no',
-			),
-			'title'              => array(
-				'title'       => __( 'Title', 'mobipay-payments-woo' ),
-				'type'        => 'text',
-				'description' => __( 'mobipay Mobile Payment method description that the customer will see on your checkout.', 'mobipay-payments-woo' ),
-				'default'     => __( 'MobiPay Mobile Payments', 'mobipay-payments-woo' ),
-				'desc_tip'    => true,
-			),
-			'description'        => array(
-				'title'       => __( 'Description', 'mobipay-payments-woo' ),
-				'type'        => 'textarea',
-				'description' => __( 'mobipay Mobile Payment method description that the customer will see on your website.', 'mobipay-payments-woo' ),
-				'default'     => __( 'MobiPay Mobile Payments before delivery.', 'mobipay-payments-woo' ),
-				'desc_tip'    => true,
-			),
-			'instructions'       => array(
-				'title'       => __( 'Instructions', 'mobipay-payments-woo' ),
-				'type'        => 'textarea',
-				'description' => __( 'Instructions that will be added to the thank you page.', 'mobipay-payments-woo' ),
-				'default'     => __( 'MobiPay Mobile Payments before delivery.', 'mobipay-payments-woo' ),
-				'desc_tip'    => true,
-			),
-			'enable_for_methods' => array(
-				'title'             => __( 'Enable for shipping methods', 'mobipay-payments-woo' ),
-				'type'              => 'multiselect',
-				'class'             => 'wc-enhanced-select',
-				'css'               => 'width: 400px;',
-				'default'           => '',
-				'description'       => __( 'If mobipay is only available for certain methods, set it up here. Leave blank to enable for all methods.', 'mobipay-payments-woo' ),
-				'options'           => $this->load_shipping_method_options(),
-				'desc_tip'          => true,
-				'custom_attributes' => array(
-					'data-placeholder' => __( 'Select shipping methods', 'mobipay-payments-woo' ),
-				),
-			),
-			'enable_for_virtual' => array(
-				'title'   => __( 'Accept for virtual orders', 'mobipay-payments-woo' ),
-				'label'   => __( 'Accept mobipay if the order is virtual', 'mobipay-payments-woo' ),
-				'type'    => 'checkbox',
-				'default' => 'yes',
-			),
-		);
-	}
+/**
+ * Initialise Gateway Settings Form Fields.
+ */
+public function init_form_fields()
+{
+    $this->form_fields = [
+        'enabled' => [
+            'title' => __('Enable/Disable', 'mobipay-payments-woo'),
+            'label' => __('Enable MobiPay Mobile Payments', 'mobipay-payments-woo'),
+            'type' => 'checkbox',
+            'description' => '',
+            'default' => 'no',
+        ],
+        'title' => [
+            'title' => __('Title', 'mobipay-payments-woo'),
+            'type' => 'text',
+            'description' => __('mobipay Mobile Payment method description that the customer will see on your checkout.', 'mobipay-payments-woo'),
+            'default' => __('MobiPay Mobile Payments', 'mobipay-payments-woo'),
+            'desc_tip' => true,
+        ],
+        'description' => [
+            'title' => __('Description', 'mobipay-payments-woo'),
+            'type' => 'textarea',
+            'description' => __('mobipay Mobile Payment method description that the customer will see on your website.', 'mobipay-payments-woo'),
+            'default' => __('MobiPay Mobile Payments before delivery.', 'mobipay-payments-woo'),
+            'desc_tip' => true,
+        ],
+        'instructions' => [
+            'title' => __('Instructions', 'mobipay-payments-woo'),
+            'type' => 'textarea',
+            'description' => __('Instructions that will be added to the thank you page.', 'mobipay-payments-woo'),
+            'default' => __('MobiPay Mobile Payments before delivery.', 'mobipay-payments-woo'),
+            'desc_tip' => true,
+        ],
+        'enable_for_methods' => [
+            'title' => __('Enable for shipping methods', 'mobipay-payments-woo'),
+            'type' => 'multiselect',
+            'class' => 'wc-enhanced-select',
+            'css' => 'width: 400px;',
+            'default' => '',
+            'description' => __('If mobipay is only available for certain methods, set it up here. Leave blank to enable for all methods.', 'mobipay-payments-woo'),
+            'options' => $this->load_shipping_method_options(),
+            'desc_tip' => true,
+            'custom_attributes' => [
+                'data-placeholder' => __('Select shipping methods', 'mobipay-payments-woo'),
+            ],
+        ],
+        'enable_for_virtual' => [
+            'title' => __('Accept for virtual orders', 'mobipay-payments-woo'),
+            'label' => __('Accept mobipay if the order is virtual', 'mobipay-payments-woo'),
+            'type' => 'checkbox',
+            'default' => 'yes',
+        ],
+    ];
+}
+
 
 	/**
 	 * Check If The Gateway Is Available For Use.
