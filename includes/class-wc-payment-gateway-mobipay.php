@@ -102,6 +102,16 @@ public function init_form_fields()
             'type' => 'checkbox',
             'default' => 'yes',
         ],
+         'mode' => [
+            'title' => __( 'Mode', 'mobipay-payments-woo' ),
+            'type' => 'select',
+            'description' => __( 'Select whether to use sandbox or production mode.', 'mobipay-payments-woo' ),
+            'default' => 'sandbox',
+            'options' => [
+                'sandbox' => __( 'Sandbox', 'mobipay-payments-woo' ),
+                'production' => __( 'Production', 'mobipay-payments-woo' ),
+            ],
+            ]
     ];
 }
 
@@ -323,11 +333,11 @@ public function init_form_fields()
 
 	private function mobipay_payment_processing() {
 
-		
-		
+
+
 		// pending payment
 		// $order->update_status( apply_filters( 'woocommerce_mobipay_process_payment_order_status', $order->has_downloadable_item() ? 'wc-invoiced' : 'processing', $order ), __( 'Payments pending.', 'mobipay-payments-woo' ) );
-		
+
 		// // If cleared
 		// $order->payment_complete();
 	}
